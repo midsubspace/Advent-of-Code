@@ -11,5 +11,18 @@ part_one=function(puzzle_input)
     end for
     print "Ending Floor:"+floor
 end function
-
-part_one(puzzle_input)
+part_two=function(puzzle_input)
+    move=function(puzzle_input=null,floor=null,positon=null)
+        if puzzle_input=="(" then floor=floor+1
+        if puzzle_input==")" then floor=floor-1
+        return floor
+    end function
+    floor=0
+    positon=1
+    for item in puzzle_input.split("")
+        print floor
+        floor=move(item,floor,positon)
+        positon=positon+1
+    end for
+end function
+part_two(puzzle_input)
